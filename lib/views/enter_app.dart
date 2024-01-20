@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/foods.dart';
-import 'package:flutter_application_1/login.dart';
+
+import 'login.dart';
 
 class EnterApp extends StatefulWidget {
   const EnterApp({super.key});

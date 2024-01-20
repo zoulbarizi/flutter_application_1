@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'foods.dart';
+
 class Login extends StatefulWidget {
   const Login({super.key});
 
@@ -77,6 +79,11 @@ class _LoginState extends State<Login> {
 
                 debugPrint("login = $login");
                 debugPrint("psw = $psw");
+
+                Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(builder: (context) => const Foods()),
+                  (route) => false,
+                );
               },
             ),
           ],

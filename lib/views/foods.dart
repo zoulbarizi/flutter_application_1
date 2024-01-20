@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/models/food.dart';
+import 'package:flutter_application_1/widgets/my_food.dart';
 
 class Foods extends StatefulWidget {
   const Foods({super.key});
@@ -9,6 +11,33 @@ class Foods extends StatefulWidget {
 
 class _FoodsState extends State<Foods> {
   bool isFavoris = false;
+
+  // List<Map<String, dynamic>> myFoodData = [
+  //   {
+  //     "title": "Riz noir",
+  //     "subtitle": "subtitle",
+  //     "stars": 5,
+  //     "favorit": true,
+  //     "image":
+  //         "https://cac.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fcac.2F2018.2F09.2F25.2F166ce1c3-9452-4422-94e0-9c8c7ddc0090.2Ejpeg/750x562/quality/80/crop-from/center/cr/wqkgTGF1cmVudCBSb3V2cmFpcy9QcmlzbWFwaXggLyBDdWlzaW5lIEFjdHVlbGxl/salade-de-riz-noir-a-la-grenade-et-aux-pignons.jpeg",
+  //   },
+  //   {
+  //     "title": "Riz au gras",
+  //     "subtitle": "subtitle",
+  //     "stars": 4,
+  //     "favorit": false,
+  //     "image":
+  //         "https://img.freepik.com/free-photo/big-sandwich-hamburger-with-juicy-beef-burger-cheese-tomato-red-onion-wooden-table_2829-19631.jpg",
+  //   },
+  //   {
+  //     "title": "Riz bleu",
+  //     "subtitle": "subtitle",
+  //     "stars": 4,
+  //     "favorit": true,
+  //     "image":
+  //         "https://static.750g.com/images/1200-675/ea621fd21d03206d1b53937c1400f089/risotto-bleu-au-roquefort-et-aux-poires.jpeg",
+  //   },
+  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +87,16 @@ class _FoodsState extends State<Foods> {
                 ),
                 child: ListView(
                   padding: EdgeInsets.zero,
+                  // children: myFoodData
+                  //     .map(
+                  //       (e) => MyFood(
+                  //         title: e["title"],
+                  //         subtitle: e["subtitle"],
+                  //         stars: e["stars"],
+                  //         image: e["image"],
+                  //       ),
+                  //     )
+                  //     .toList(),
                   children: [
                     Container(
                       padding: const EdgeInsets.all(20),
@@ -76,52 +115,27 @@ class _FoodsState extends State<Foods> {
                         ],
                       ),
                     ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(12),
-                        boxShadow: [
-                          const BoxShadow(blurRadius: 5),
-                        ],
-                      ),
-                      child: ListTile(
-                        leading: Image.network(
-                            "https://upload.wikimedia.org/wikipedia/commons/4/4e/McDonald%27s_Twitter_logo.png"),
-                        title: const Text(
-                          "Mc Donald's",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        subtitle: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text("Mc Donald's"),
-                            const Text("Mc Donald's"),
-                            const SizedBox(height: 5),
-                            Row(
-                              children: [1, 2, 3, 4, 5]
-                                  .map(
-                                    (e) => const Icon(
-                                      Icons.star,
-                                      color: Colors.deepOrange,
-                                      size: 15,
-                                    ),
-                                  )
-                                  .toList(),
-                            ),
-                          ],
-                        ),
-                        trailing: IconButton(
-                          onPressed: () {
-                            isFavoris = !isFavoris;
-                            setState(() {});
-                          },
-                          icon: Icon(
-                            isFavoris ? Icons.favorite : Icons.favorite_border,
-                            color: isFavoris ? Colors.deepOrange : Colors.grey,
-                          ),
-                        ),
-                      ),
-                    ),
+                    // ...myFoodData
+                    //     .map(
+                    //       (e) => MyFood(
+                    //         title: e["title"],
+                    //         subtitle: e["subtitle"],
+                    //         stars: e["stars"],
+                    //         image: e["image"],
+                    //         favorit: e["favorit"],
+                    //       ),
+                    //     )
+                    //     .toList(),
+
+                    // ...myFoods.map((e) => MyFood(
+                    // title: e["title"],
+                    //         subtitle: e["subtitle"],
+                    //         stars: e["stars"],
+                    //         image: e["image"],
+                    //         favorit: e["favorit"],
+                    // )).toList()
+
+                    ...myFoods.map((e) => MyFood(food: e)).toList()
                   ],
                 ),
               ),

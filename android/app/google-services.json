@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "296226227239",
+    "project_id": "ecole229-db480",
+    "storage_bucket": "ecole229-db480.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:296226227239:android:cc764c50aaf5c3e441ba02",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDl4-s0ckJEmcSDdKhRxnFejRlVZ8R2pFE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

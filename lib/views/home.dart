@@ -7,7 +7,7 @@ class Home extends StatelessWidget {
     return Container(
       height: 150,
       width: 250,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.green,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(50),
@@ -30,7 +30,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Mon Appli"),
+          title: const Text("Mon Appli"),
           centerTitle: true,
           // toolbarHeight: 300,
           actions: [
@@ -38,27 +38,27 @@ class Home extends StatelessWidget {
               onPressed: () {
                 debugPrint("Mes notifs");
               },
-              icon: Icon(Icons.notifications),
+              icon: const Icon(Icons.notifications),
             ),
             IconButton(
               onPressed: () {
                 debugPrint("Mes notifs");
               },
-              icon: Icon(Icons.person),
+              icon: const Icon(Icons.person),
             ),
           ],
         ),
         drawer: Drawer(
           child: ListView(
             children: [
-              Text("data"),
-              Text("data"),
-              Text("data"),
-              Text("data"),
-              Text("data"),
-              Text("data"),
-              Text("data"),
-              Text("data"),
+              const Text("data"),
+              const Text("data"),
+              const Text("data"),
+              const Text("data"),
+              const Text("data"),
+              const Text("data"),
+              const Text("data"),
+              const Text("data"),
             ],
           ),
         ),

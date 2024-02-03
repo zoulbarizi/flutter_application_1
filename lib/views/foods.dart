@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/food.dart';
 import 'package:flutter_application_1/widgets/my_food.dart';
+import 'package:flutter_application_1/widgets/my_food_grid.dart';
 
 class Foods extends StatefulWidget {
   const Foods({super.key});
@@ -10,7 +11,7 @@ class Foods extends StatefulWidget {
 }
 
 class _FoodsState extends State<Foods> {
-  bool isFavoris = false;
+  bool isFavoris = false, isList = true;
 
   // List<Map<String, dynamic>> myFoodData = [
   //   {
@@ -85,59 +86,95 @@ class _FoodsState extends State<Foods> {
                     topRight: Radius.circular(20),
                   ),
                 ),
-                child: ListView(
-                  padding: EdgeInsets.zero,
-                  // children: myFoodData
-                  //     .map(
-                  //       (e) => MyFood(
-                  //         title: e["title"],
-                  //         subtitle: e["subtitle"],
-                  //         stars: e["stars"],
-                  //         image: e["image"],
-                  //       ),
-                  //     )
-                  //     .toList(),
+                child: Column(
                   children: [
-                    Container(
-                      padding: const EdgeInsets.all(20),
-                      margin: const EdgeInsets.only(bottom: 20),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        color: Colors.deepOrange,
-                      ),
-                      child: const Row(
-                        children: [
-                          Icon(Icons.info_outline),
-                          Text("tititle"),
-                          Spacer(),
-                          Text("Read more"),
-                          Icon(Icons.arrow_right_alt_sharp),
-                        ],
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        IconButton(
+                          onPressed: () => setState(() => isList = true),
+                          icon: const Icon(Icons.list),
+                        ),
+                        IconButton(
+                          onPressed: () => setState(() => isList = false),
+                          icon: const Icon(Icons.grid_view),
+                        ),
+                      ],
                     ),
-                    // ...myFoodData
-                    //     .map(
-                    //       (e) => MyFood(
-                    //         title: e["title"],
-                    //         subtitle: e["subtitle"],
-                    //         stars: e["stars"],
-                    //         image: e["image"],
-                    //         favorit: e["favorit"],
-                    //       ),
-                    //     )
-                    //     .toList(),
-
-                    // ...myFoods.map((e) => MyFood(
-                    // title: e["title"],
-                    //         subtitle: e["subtitle"],
-                    //         stars: e["stars"],
-                    //         image: e["image"],
-                    //         favorit: e["favorit"],
-                    // )).toList()
-
-                    ...myFoods.map((e) => MyFood(food: e)).toList()
+                    Expanded(
+                      child: isList
+                          ? ListView(
+                              children:
+                                  myFoods.map((e) => MyFood(food: e)).toList(),
+                            )
+                          : GridView(
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                mainAxisSpacing: 5.0,
+                                crossAxisSpacing: 5.0,
+                                // childAspectRatio: 1.5,
+                              ),
+                              children: myFoods
+                                  .map((e) => MyFoodGrid(food: e))
+                                  .toList(),
+                            ),
+                    ),
                   ],
                 ),
+                // child: ListView(
+                //   padding: EdgeInsets.zero,
+                //   // children: myFoodData
+                //   //     .map(
+                //   //       (e) => MyFood(
+                //   //         title: e["title"],
+                //   //         subtitle: e["subtitle"],
+                //   //         stars: e["stars"],
+                //   //         image: e["image"],
+                //   //       ),
+                //   //     )
+                //   //     .toList(),
+                //   children: [
+                //     Container(
+                //       padding: const EdgeInsets.all(20),
+                //       margin: const EdgeInsets.only(bottom: 20),
+                //       decoration: BoxDecoration(
+                //         borderRadius: BorderRadius.circular(12),
+                //         color: Colors.deepOrange,
+                //       ),
+                //       child: const Row(
+                //         children: [
+                //           Icon(Icons.info_outline),
+                //           Text("tititle"),
+                //           Spacer(),
+                //           Text("Read more"),
+                //           Icon(Icons.arrow_right_alt_sharp),
+                //         ],
+                //       ),
+                //     ),
+                //     // ...myFoodData
+                //     //     .map(
+                //     //       (e) => MyFood(
+                //     //         title: e["title"],
+                //     //         subtitle: e["subtitle"],
+                //     //         stars: e["stars"],
+                //     //         image: e["image"],
+                //     //         favorit: e["favorit"],
+                //     //       ),
+                //     //     )
+                //     //     .toList(),
+
+                //     // ...myFoods.map((e) => MyFood(
+                //     // title: e["title"],
+                //     //         subtitle: e["subtitle"],
+                //     //         stars: e["stars"],
+                //     //         image: e["image"],
+                //     //         favorit: e["favorit"],
+                //     // )).toList()
+
+                //     ...myFoods.map((e) => MyFood(food: e)).toList()
+                //   ],
+                // ),
               ),
             ),
           ],

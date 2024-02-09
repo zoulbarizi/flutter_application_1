@@ -1,5 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/controllers/food_controller.dart';
 import 'package:flutter_application_1/models/food.dart';
+import 'package:flutter_application_1/views/add_food_form.dart';
+import 'package:flutter_application_1/views/login.dart';
 import 'package:flutter_application_1/widgets/my_food.dart';
 import 'package:flutter_application_1/widgets/my_food_grid.dart';
 
@@ -102,24 +106,45 @@ class _FoodsState extends State<Foods> {
                       ],
                     ),
                     Expanded(
-                      child: isList
-                          ? ListView(
-                              children:
-                                  myFoods.map((e) => MyFood(food: e)).toList(),
-                            )
-                          : GridView(
-                              gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2,
-                                mainAxisSpacing: 5.0,
-                                crossAxisSpacing: 5.0,
-                                // childAspectRatio: 1.5,
-                              ),
-                              children: myFoods
-                                  .map((e) => MyFoodGrid(food: e))
-                                  .toList(),
-                            ),
+                      child: StreamBuilder<List<Food>>(
+                          stream: FoodController().getFoods().asStream(),
+                          builder: (context, snapshot) {
+                            if (!snapshot.hasData) {
+                              return const Center(
+                                  child: CircularProgressIndicator());
+                            }
+
+                            return isList
+                                ? ListView(
+                                    children: snapshot.data!
+                                        .map((e) => MyFood(food: e))
+                                        .toList(),
+                                  )
+                                : GridView(
+                                    gridDelegate:
+                                        const SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 2,
+                                      mainAxisSpacing: 5.0,
+                                      crossAxisSpacing: 5.0,
+                                      // childAspectRatio: 1.5,
+                                    ),
+                                    children:  snapshot.data!
+                                        .map((e) => MyFoodGrid(food: e))
+                                        .toList(),
+                                  );
+                          }),
                     ),
+                    const SizedBox(height: 20),
+                    ElevatedButton(
+                        child: const Text("Sign Out"),
+                        onPressed: () {
+                          FirebaseAuth.instance.signOut();
+                          Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute(
+                                builder: (context) => const Login()),
+                            (route) => false,
+                          );
+                        }),
                   ],
                 ),
                 // child: ListView(
@@ -179,6 +204,15 @@ class _FoodsState extends State<Foods> {
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        foregroundColor: Colors.green,
+        child: const Icon(Icons.add),
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => const AddFood()),
+          );
+        },
       ),
     );
   }

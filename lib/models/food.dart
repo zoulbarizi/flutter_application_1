@@ -1,6 +1,6 @@
 class Food {
   final String title, subtitle, details;
-  final String? image;
+  final String? image, id;
   final int stars;
   final bool favorit;
 
@@ -9,8 +9,26 @@ class Food {
       required this.subtitle,
       required this.details,
       this.image,
+      this.id,
       required this.stars,
       required this.favorit});
+
+  static Food fromJson(Map<String, dynamic> json) => Food(
+        title: json["title"],
+        subtitle: json["subtitle"],
+        details: json["details"],
+        stars: json["stars"],
+        favorit: json["favorit"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "title": title,
+        "subtitle": subtitle,
+        "details": details,
+        "stars": stars,
+        "favorit": favorit,
+        "image": image,
+      };
 }
 
 List<Food> myFoods = [

@@ -44,38 +44,38 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCIf7kthIHfj-dxClQVzp3oeURs0iYkuvQ',
-    appId: '1:296226227239:web:fa4a8f6c5e3b950641ba02',
-    messagingSenderId: '296226227239',
-    projectId: 'ecole229-db480',
-    authDomain: 'ecole229-db480.firebaseapp.com',
-    storageBucket: 'ecole229-db480.appspot.com',
-    measurementId: 'G-17ZCQFYM2T',
+    apiKey: 'AIzaSyDhz4FDRU-WUSeQ-owbgRSt62MBoCm2RCw',
+    appId: '1:1075007431985:web:f8ed455a3e7c05fbc8bc10',
+    messagingSenderId: '1075007431985',
+    projectId: 'ecole229-ba68a',
+    authDomain: 'ecole229-ba68a.firebaseapp.com',
+    storageBucket: 'ecole229-ba68a.appspot.com',
+    measurementId: 'G-Z98FQVG4V2',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDl4-s0ckJEmcSDdKhRxnFejRlVZ8R2pFE',
-    appId: '1:296226227239:android:cc764c50aaf5c3e441ba02',
-    messagingSenderId: '296226227239',
-    projectId: 'ecole229-db480',
-    storageBucket: 'ecole229-db480.appspot.com',
+    apiKey: 'AIzaSyDac4E9za65X-4nx1UNaCua_HPxJIodIcw',
+    appId: '1:1075007431985:android:87b09c3e20088b79c8bc10',
+    messagingSenderId: '1075007431985',
+    projectId: 'ecole229-ba68a',
+    storageBucket: 'ecole229-ba68a.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyA7-7FQUVbCSBu8BEJ7fo0lDTISIcrBMwA',
-    appId: '1:296226227239:ios:b1b764f17e192eac41ba02',
-    messagingSenderId: '296226227239',
-    projectId: 'ecole229-db480',
-    storageBucket: 'ecole229-db480.appspot.com',
+    apiKey: 'AIzaSyAIzrXQbrO5QFhwStiV9VVVfKnTZ0RXT0Y',
+    appId: '1:1075007431985:ios:ae29d5b2b72adb2ec8bc10',
+    messagingSenderId: '1075007431985',
+    projectId: 'ecole229-ba68a',
+    storageBucket: 'ecole229-ba68a.appspot.com',
     iosBundleId: 'com.example.flutterApplication1',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyA7-7FQUVbCSBu8BEJ7fo0lDTISIcrBMwA',
-    appId: '1:296226227239:ios:5ef588127d60299741ba02',
-    messagingSenderId: '296226227239',
-    projectId: 'ecole229-db480',
-    storageBucket: 'ecole229-db480.appspot.com',
+    apiKey: 'AIzaSyAIzrXQbrO5QFhwStiV9VVVfKnTZ0RXT0Y',
+    appId: '1:1075007431985:ios:58ce864d8bde106ac8bc10',
+    messagingSenderId: '1075007431985',
+    projectId: 'ecole229-ba68a',
+    storageBucket: 'ecole229-ba68a.appspot.com',
     iosBundleId: 'com.example.flutterApplication1.RunnerTests',
   );
 }
